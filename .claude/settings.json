@@ -1,0 +1,93 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(./infrastructure/**.tf)",
+      "Write(./frontend/src/**)",
+      "Write(./frontend/public/**)",
+      "Write(./backend/src/**)",
+      "Write(./backend/tests/**)",
+      "Write(./**/*.md)",
+      "Write(./**/*.json)",
+      "Write(./**/*.yml)",
+      "Write(./**/*.yaml)",
+      "Bash(cd *)",
+      "Bash(ls *)",
+      "Bash(pwd)",
+      "Bash(cat *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(terraform init)",
+      "Bash(terraform plan*)",
+      "Bash(terraform validate)",
+      "Bash(terraform fmt*)",
+      "Bash(npm install*)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(npm run test*)",
+      "Bash(npm run lint*)",
+      "Bash(npm run format*)",
+      "Bash(npx prettier*)",
+      "Bash(npx eslint*)",
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(node *)"
+    ],
+    "deny": [
+      "Write(./**/.env*)",
+      "Write(./infrastructure/**/*production*)",
+      "Write(./infrastructure/**/*prod*)",
+      "Write(./**/package-lock.json)",
+      "Write(./**/yarn.lock)",
+      "Write(./**/pnpm-lock.yaml)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(terraform apply*)",
+      "Bash(terraform destroy*)",
+      "Bash(git push*)",
+      "Bash(npm publish*)",
+      "Bash(aws *)",
+      "WebFetch"
+    ],
+    "ask": [
+      "Write(./frontend/package.json)",
+      "Write(./backend/package.json)",
+      "Write(./infrastructure/**.tfvars)",
+      "Write(./**/tsconfig.json)",
+      "Bash(git checkout*)",
+      "Bash(git merge*)",
+      "Bash(git rebase*)",
+      "Bash(git reset*)"
+    ]
+  },
+  "hooks": {
+    "WriteTs": [
+      {
+        "matcher": "Write(*.ts|*.tsx)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx prettier --write \"$CLAUDE_FILE_PATHS\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "WriteTf": [
+      {
+        "matcher": "Write(*.tf)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terraform fmt \"$CLAUDE_FILE_PATHS\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  },
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
