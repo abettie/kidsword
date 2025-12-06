@@ -12,7 +12,8 @@
 2. **作業ブランチの作成**
    - masterブランチから新しいブランチを作成
    - ブランチ名の形式: `feature/[Issue番号]-[Issue タイトルのスラッグ化]`
-   - 例: Issue #3 "Add README" → `feature/3-add-readme`
+   - ブランチ名は数字、アルファベット、記号のみとし、マルチバイト文字は含めない
+   - 例: Issue #3 "README作成" → `feature/3-add-readme`
    - タイトルは小文字化し、スペースをハイフンに置き換える
 
 3. **Issue内容に基づく作業実行**
