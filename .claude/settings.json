@@ -39,56 +39,19 @@
       "Bash(git pull:*)",
       "Bash(gh issue list:*)",
       "Bash(gh issue view:*)",
-      "Bash(gh pr create:*)"
+      "Bash(gh pr create:*)",
+      "Bash(AWS_PROFILE=terraform-master; terraform plan:*)"
     ],
     "deny": [
+      "Bash(sudo:*)",
+      "Bash(rm -rf:*)",
       "Read(.env.*)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
       "Write(./**/.env*)",
-      "Write(./infrastructure/**/*production*)",
-      "Write(./infrastructure/**/*prod*)",
       "Write(./**/package-lock.json)",
       "Write(./**/yarn.lock)",
-      "Write(./**/pnpm-lock.yaml)",
-      "Bash(rm -rf:*)",
-      "Bash(sudo:*)",
-      "Bash(curl:*)",
-      "Bash(aws:*)",
-      "Bash(terraform apply:*)",
-      "Bash(terraform destroy:*)",
-      "Bash(npm publish:*)",
-      "WebFetch"
-    ],
-    "ask": [
-      "Write(./frontend/package.json)",
-      "Write(./backend/package.json)",
-      "Write(./infrastructure/**.tfvars)",
-      "Write(./**/tsconfig.json)"
-    ]
-  },
-  "hooks": {
-    "WriteTs": [
-      {
-        "matcher": "Write(*.ts|*.tsx)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx prettier --write \"$CLAUDE_FILE_PATHS\" 2>/dev/null || true"
-          }
-        ]
-      }
-    ],
-    "WriteTf": [
-      {
-        "matcher": "Write(*.tf)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "terraform fmt \"$CLAUDE_FILE_PATHS\" 2>/dev/null || true"
-          }
-        ]
-      }
+      "Write(./**/pnpm-lock.yaml)"
     ]
   },
   "env": {
