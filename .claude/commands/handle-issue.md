@@ -21,23 +21,12 @@
    - 必要なファイルの作成・修正を行う
    - コーディング規約に従って実装
 
-4. **Terraform構文チェック**（Terraformソースを修正した場合のみ）
-   - `aws sso login --profile terraform-master` を実行
-   - ログインが成功したら`AWS_PROFILE=terraform-master; terraform plan` を実行
-   - エラーが発生した場合:
-     - エラーメッセージを確認し、原因を特定
-     - 該当するTerraformファイルを修正
-     - 再度 `AWS_PROFILE=terraform-master; terraform plan` を実行
-     - エラーがなくなるまで修正とplanを繰り返す
-   - planが成功したら次のステップへ進む
-
-5. **変更のコミット**
-   - この作業は前工程のterraform planが成功してから行う
+4. **変更のコミット**
    - 変更をステージング
    - コミットメッセージは日本語で簡潔に記述
    - コミットメッセージの例: "READMEファイルを追加"
 
-6. **プルリクエストの作成**
+5. **プルリクエストの作成**
    - 作業ブランチをリモートにプッシュ
    - masterブランチに対するプルリクエストを作成
    - PRのタイトル: 日本語でわかりやすく（Issueのタイトルを参考に）
