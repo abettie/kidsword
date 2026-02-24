@@ -14,7 +14,7 @@
 ## 技術スタック
 
 - **インフラ**: Terraform (AWS Lambda, DynamoDB, etc.)
-- **フロントエンド**: React, TypeScript
+- **フロントエンド**: Flutter
 - **バックエンド**: TypeScript, AWS Lambda, DynamoDB
 
 # ルール
