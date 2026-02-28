@@ -18,3 +18,18 @@
 - 他のユーザの投稿はソートや絞り込みができません
 - いいねなどの評価機能はありません
 - ランキング機能はありません
+
+## プロジェクト構成
+
+```
+/
+├── infrastructure/    # インフラ
+├── frontend/          # フロントエンド
+└── backend/           # バックエンド
+```
+
+## 技術スタック
+
+- **インフラ**: Terraform (AWS Lambda, DynamoDB, etc.)
+- **フロントエンド**: Flutter
+- **バックエンド**: TypeScript, AWS Lambda, DynamoDB
