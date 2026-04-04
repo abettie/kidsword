@@ -6,14 +6,21 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/kidsword,type=bind",
   "workspaceFolder": "/workspaces/kidsword",
 
-  // ホストの ~/.claude/ をマウントしてスラッシュコマンドを共有
   "mounts": [
-    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind"
+    // 履歴や設定が保存されるディレクトリをマウント
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached",
+    // 認証情報が保存されるファイルをマウント
+    "source=${localEnv:HOME}/.claude.json,target=/home/vscode/.claude.json,type=bind,consistency=cached"
   ],
+
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
 
   // devcontainer内であることをClaudeに伝える環境変数
   "remoteEnv": {
-    "DEVCONTAINER": "true"
+    "DEVCONTAINER": "true",
+    "PATH": "/home/vscode/.claude/bin:${containerEnv:PATH}"
   },
 
   // コンテナ内では全操作を自動許可（コンテナ外には影響しない）
