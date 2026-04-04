@@ -6,6 +6,11 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/kidsword,type=bind",
   "workspaceFolder": "/workspaces/kidsword",
 
+  // ホストの ~/.claude/ をマウントしてスラッシュコマンドを共有
+  "mounts": [
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind"
+  ],
+
   // devcontainer内であることをClaudeに伝える環境変数
   "remoteEnv": {
     "DEVCONTAINER": "true"
