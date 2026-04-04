@@ -1,5 +1,14 @@
 {
   "permissions": {
-    "defaultMode": "bypassPermissions"
+    "deny": [
+      "Bash(sudo*)",
+      "Bash(rm -rf*)",
+      "Read(.env)",
+      "Read(id_rsa)",
+      "Write(./**/.env*)",
+      "Write(./**/package-lock.json)",
+      "Write(./**/yarn.lock)",
+      "Write(./**/pnpm-lock.yaml)"
+    ]
   }
 }
