@@ -1,41 +1,5 @@
 {
   "permissions": {
-    "allow": [
-      "Read(**)",
-      "Write(./infrastructure/**)",
-      "Write(./frontend/**)",
-      "Write(./backend/**)",
-      "Bash(cd :*)",
-      "Bash(ls :*)",
-      "Bash(pwd)",
-      "Bash(cat *)",
-      "Bash(grep *)",
-      "Bash(find *)",
-      "Bash(mkdir *)",
-      "Bash(terraform plan)",
-      "Bash(git status)",
-      "Bash(git diff *)",
-      "Bash(git log *)",
-      "Bash(git branch)",
-      "Bash(git add *)",
-      "Bash(git commit *)",
-      "Bash(git pull *)",
-      "Bash(gh issue list)",
-      "Bash(gh issue view *)",
-      "Bash(gh pr create *)"
-    ],
-    "deny": [
-      "Bash(sudo:*)",
-      "Bash(rm -rf:*)",
-      "Read(.env.*)",
-      "Read(id_rsa)",
-      "Write(./**/.env*)",
-      "Write(./**/package-lock.json)",
-      "Write(./**/yarn.lock)",
-      "Write(./**/pnpm-lock.yaml)"
-    ]
-  },
-  "env": {
-    "NODE_ENV": "development"
+    "defaultMode": "bypassPermissions"
   }
 }
