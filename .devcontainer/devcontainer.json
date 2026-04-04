@@ -1,0 +1,22 @@
+{
+  "name": "kidsword",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  // プロジェクトディレクトリのみマウント（ホストの他のパスには触れない）
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/kidsword,type=bind",
+  "workspaceFolder": "/workspaces/kidsword",
+
+  // devcontainer内であることをClaudeに伝える環境変数
+  "remoteEnv": {
+    "DEVCONTAINER": "true"
+  },
+
+  // コンテナ内では全操作を自動許可（コンテナ外には影響しない）
+  "customizations": {
+    "claude-code": {
+      "permissions": {
+        "defaultMode": "bypassPermissions"
+      }
+    }
+  }
+}
