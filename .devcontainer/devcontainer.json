@@ -21,14 +21,5 @@
   "remoteEnv": {
     "DEVCONTAINER": "true",
     "PATH": "/home/vscode/.claude/bin:${containerEnv:PATH}"
-  },
-
-  // コンテナ内では全操作を自動許可（コンテナ外には影響しない）
-  "customizations": {
-    "claude-code": {
-      "permissions": {
-        "defaultMode": "bypassPermissions"
-      }
-    }
   }
 }
